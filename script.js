@@ -1,23 +1,21 @@
-let counter = 0;
-function deleteTodo(index){
-    const element = document.getElementById("todo-" + index);
-    element.parentElement.removeChild(element);
-}
-
 function addTodo(){
+
     const element = document.querySelector("input");
-    const todo = element.value;
+    const todo = element.value;         // get the value from input 
+    
+    const spanEl = document.createElement("span");;         // create a span/parentDiv
+    const buttom = document.createElement("button");      // create a buttom 
+    
+    spanEl.innerHTML = todo;      // assign the span innerHTML
+    buttom.innerHTML = "Delete";      // assign the button innerHTML = delete 
+    
+    const parentDiv = document.createElement("parentDiv");    // create a parentDiv 
 
-    const newDiv = document.createElement('parentDiv');
-    newDiv.setAttribute('id', "todo-" + counter);     // <parentDiv id='counter'>
-    newDiv.innerHTML = "<parentDiv>" + todo + "<button onclick='deleteTodo("+ counter +")' >Delete</button></parentDiv>";
-    counter++;
+    parentDiv.appendChild(spanEl);      // appened the span to parentDiv
+    parentDiv.appendChild(buttom);    // appened the button to parentDiv
 
-    document.querySelector("body").appendChild(newDiv);
+    document.querySelector("body").appendChild(parentDiv);    // appned parentDiv to body
 }
-
-
-
 
 
 
